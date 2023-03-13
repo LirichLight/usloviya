@@ -15,20 +15,28 @@ public class Main {
         System.out.print("c = "); float varC = in.nextFloat();
         float disc = (float)pow(varB, 2) - 4 * varA * varC; //float явно тут, т.к. метод pow возвращает double
 
-        //Вот всё это я хотел запихать в switch(true)
-        if ((varA * varB * varC) == 0) System.out.println("Ваше уранвение не имеет смысла, 0=0");
-        else if (varC == 0.0f && ((varB * varA) != 0)) System.out.println("Ваше уравнение не имеет решения: " + varC + "=0"); //только c != 0, ур-е вида 2=0
-        else if (varB == 0.0f && ((varC * varA) != 0)) System.out.println("Ваше уравнение линейное, его корень: 0"); //только b != 0, ур-е вида 2x=0, x=0
-        else if ((varB * varC) == 0) System.out.println("Ваше уравнение линейное, его корень: 0"); //только a != 0, ax^2=0 > x^2=0 > x=0
-        else if (varA == 0.0f && ((varB * varC) != 0)) System.out.println("Ваше уравнение линейное, его корень: " + -1 * (varC/varB)); //а=0, b и c != 0
+        if ((varA * varB * varC) == 0)
+            System.out.println("Ваше уравнение не имеет смысла, 0=0");
+        else if ((varA * varB) == 0)
+            System.out.println("Ваше уравнение не имеет решения: " + varC + "=0"); //только c != 0, ур-е вида 2=0
+        else if ((varA * varC) == 0)
+            System.out.println("Ваше уравнение линейное, его корень: 0"); //только b != 0, ур-е вида 2x=0, x=0
+        else if ((varB * varC) == 0)
+            System.out.println("Ваше уравнение линейное, его корень: 0"); //только a != 0, ax^2=0 > x^2=0 > x=0
+        else if (varA == 0.0f && ((varB * varC) != 0))
+            System.out.println("Ваше уравнение линейное, его корень: " + -1 * (varC/varB)); //а=0, b и c != 0
         else if (varB == 0.0f && ((varA * varC) != 0)) { //если b = 0, a и c != 0
             System.out.println(varC/varA < 0.0f ? "Ваше уравнение не имеет корней, т.к. x^2 всегда положительный" : // "x^2 = отрицательное число" не имеет решений
                     "Ваше уравнение имеет два корня: " + sqrt(-1 * (varC/varA)) + " и " + -1 * sqrt(-1 * (varC/varA))); //решением уравнения является модуль числа
         }
-        else if (varC == 0.0f && ((varB * varA) != 0)) System.out.println("Вашу уравнение имеет два корня: 0 и " + (-1 * (varB/varA)));
-        else if (disc < 0) System.out.println ("Ваше уравнение не имеет решения, D < 0"); //Дискриминант < 0, корней нет
-        else if (disc == 0) System.out.println ("У вашего уравнения один корень: " + (-1 * varB)/(2 * varA)); //D = 0, один корень
-        else System.out.println ("Ваше уравнение имеет два корня: " + (((-1 * varB) + sqrt(disc)) / (2 * varA)) + " и " + (((-1 * varB) - sqrt(disc)) / (2 * varA))); //И наконец два обычных корня из дискриминанта
+        else if (varC == 0.0f && ((varB * varA) != 0))
+            System.out.println("Вашу уравнение имеет два корня: 0 и " + (-1 * (varB/varA)));
+        else if (disc < 0)
+            System.out.println ("Ваше уравнение не имеет решения, D < 0"); //Дискриминант < 0, корней нет
+        else if (disc == 0)
+            System.out.println ("У вашего уравнения один корень: " + (-1 * varB)/(2 * varA)); //D = 0, один корень
+        else
+            System.out.println ("Ваше уравнение имеет два корня: " + (((-1 * varB) + sqrt(disc)) / (2 * varA)) + " и " + (((-1 * varB) - sqrt(disc)) / (2 * varA))); //И наконец два обычных корня из дискриминанта
 
         /*2)	Вводятся два целых числа. Проверить делится ли первое на второе без остатка.
         Вывести на экран сообщение об этом, а также остаток (если он есть)
@@ -43,9 +51,12 @@ public class Main {
         y = 0, если x = 0
         y = 2 * |x| - 1, если x < 0*/
         System.out.print("Введите х = "); short x = in.nextShort();
-        if (x > 0) System.out.println("Ваше уравнение y = 2* " + x + " -10, его решение y = " + (2 * x - 10));
-        else if (x == 0) System.out.println("Ваше уравнение y = 0");
-        else if (x < 0) System.out.println("Ваше уравнение y = 2 * |x| - 1, его решение y = " + (2 * abs(x) - 1));
+        if (x > 0)
+            System.out.println("Ваше уравнение y = 2* " + x + " -10, его решение y = " + (2 * x - 10));
+        else if (x == 0)
+            System.out.println("Ваше уравнение y = 0");
+        else
+            System.out.println("Ваше уравнение y = 2 * |x| - 1, его решение y = " + (2 * abs(x) - 1));
 
         /*4)	Создать меню выбора цвета (минимум 8 цветов).
         В зависимости от выбора вывести RGB координаты.*/
@@ -93,19 +104,15 @@ public class Main {
             System.out.println("Ваш треугольник не может существовать, т.к. сумма двух его сторон меньше третьей стороны");
         else if ((sev1 != sev2) && (sev1 != sev3) && (sev2 != sev3))
             System.out.println("Ваш треугольник является разносторонним");
-        else if ((sev1 == sev2) && (sev1 == sev3) && (sev2 == sev3))
+        else if (sev1 == sev2 && sev1 == sev3)
             System.out.println("Ваш треугольник является равносторонним");
         else System.out.println("Ваш треугольник является равнобедренным");
-//       тут 5го варианта не дано, но сперва я вот такое все же написал для равнобедренного:
-//       else if (((sev1 == sev2) && (sev1 != sev3) && (sev2 != sev3))
-//              || ((sev1 == sev3) && (sev1 != sev2) && (sev2 != sev3))
-//              || ((sev3 == sev2) && (sev1 != sev3) && (sev2 != sev1)))
 
-        /*8)  Определить високосный год или нет вводит пользователь.*/
+        /*8) Определить високосный год или нет вводит пользователь.*/
         System.out.print("Введите любой год "); int eigYear = in.nextShort();
         System.out.println((abs(eigYear-1992)%4) == 0 ? "Вы ввели високосный год" : "Вы ввели не високосный год");
 
-        /*9)  Заглавная буква английского языка или иной символ введён пользователем?*/
+        /*9) Заглавная буква английского языка или иной символ введён пользователем?*/
         System.out.print("Введите любой символ "); char nineSymb = in.next().charAt(0);
         System.out.println( (((int)nineSymb >= 65) && ((int)nineSymb <= 90)) ?
                 "Ваш символ - заглавная буква латинского алфавита" :
@@ -117,13 +124,18 @@ public class Main {
         System.out.print("Введите второе число "); short ten2 = in.nextShort();
         System.out.print("Введите третье число "); short ten3 = in.nextShort();
 
-        if (((ten1 > ten2) && (ten1 < ten3)) || ((ten1 < ten2) && (ten1 > ten3))) System.out.println("Среднее число первое: " + ten1);
-        else if (((ten2 > ten1) && (ten2 < ten3)) || ((ten2 < ten1) && (ten2 > ten3))) System.out.println("Среднее число второе: " + ten2);
-        else if (((ten3 > ten2) && (ten3 < ten1)) || ((ten3 < ten2) && (ten3 > ten1))) System.out.println("Среднее число третье: " + ten3);
-        else if (ten1 == ten2)  System.out.println("Среднего числа не существует, первое и второе введеные числа равны");
-        else if  (ten2 == ten3)  System.out.println("Среднего числа не существует, второе и третье введеные числа равны");
-        else System.out.println("Среднего числа не существует, первое и третье введеные числа равны");
-        //Подозреваю, что тут есть путь изящнее в плане сокращения условий, но чет подустал видать))
+        if (((ten1 > ten2) && (ten1 < ten3)) || ((ten1 < ten2) && (ten1 > ten3)))
+            System.out.println("Среднее число первое: " + ten1);
+        else if (((ten2 > ten1) && (ten2 < ten3)) || ((ten2 < ten1) && (ten2 > ten3)))
+            System.out.println("Среднее число второе: " + ten2);
+        else if (((ten3 > ten2) && (ten3 < ten1)) || ((ten3 < ten2) && (ten3 > ten1)))
+            System.out.println("Среднее число третье: " + ten3);
+        else if (ten1 == ten2)
+            System.out.println("Среднего числа не существует, первое и второе введеные числа равны");
+        else if  (ten2 == ten3)
+            System.out.println("Среднего числа не существует, второе и третье введеные числа равны");
+        else
+            System.out.println("Среднего числа не существует, первое и третье введеные числа равны");
 
         /*11) Ракета запускается с Земли со скоростью V(км.час) в направлении движения Земли по орбите вокруг Солнца.
         Составьте программу, определяющую результат запуска ракеты в зависимости от скорости V.
@@ -132,18 +144,27 @@ public class Main {
         System.out.print("Введите скорость ракеты (км/ч) "); float elevenSpeed = in.nextFloat();
         elevenSpeed *= 3.6f; //переводим км/ч в м/с
 
-        if (elevenSpeed < 7.8f)  System.out.println("Ракета упадет");
-        else if (elevenSpeed > 16.4f) System.out.println("Ракета покинет солнечную систему");
-        else if ((7.8f <= elevenSpeed) && (elevenSpeed < 11.2)) System.out.println("Ракета станет спутником Земли");
-        else System.out.println("Ракета станет спутником Солнца");
+        if (elevenSpeed < 7.8f)
+            System.out.println("Ракета упадет");
+        else if (elevenSpeed > 16.4f)
+            System.out.println("Ракета покинет солнечную систему");
+        else if ((7.8f <= elevenSpeed) && (elevenSpeed < 11.2))
+            System.out.println("Ракета станет спутником Земли");
+        else
+            System.out.println("Ракета станет спутником Солнца");
 
         /*12) Определелить количество знаков в натуральном числе от 0 до 1000, не прибегая к строковым переменным.*/
         System.out.print("Введите число от 0 до 1000: "); int twelveNum = in.nextInt();
-        if ((twelveNum < 0) || (twelveNum > 1000)) System.out.println("Вы ввели число за рамками допустимого диапазона");
-        else if ((twelveNum / 1000) > 0) System.out.println("Ваше число четырехзначное");
-        else if ((twelveNum / 100) > 0) System.out.println("Ваше число трехзначное");
-        else if ((twelveNum / 10) > 0) System.out.println("Ваше число двухзначное");
-        else System.out.println("Ваше число однозначное");
+        if ((twelveNum < 0) || (twelveNum > 1000))
+            System.out.println("Вы ввели число за рамками допустимого диапазона");
+        else if (twelveNum > 999)
+            System.out.println("Ваше число четырехзначное");
+        else if (twelveNum > 99)
+            System.out.println("Ваше число трехзначное");
+        else if (twelveNum > 9)
+            System.out.println("Ваше число двухзначное");
+        else
+            System.out.println("Ваше число однозначное");
 
         /*1*) К финалу конкурса лучшего по профессии «Специалист электронного офиса» были допущены трое: Иванов, Петров, Сидоров.
         Соревнования проходили в три тура. Иванов в первом туре набрал M1 баллов, во втором – N1, в третьем – P1.
@@ -160,56 +181,138 @@ public class Main {
         short ivanWins = 0, petrWins = 0, sidWins = 0; //кол-во победв раундах каждого участника
 
         //Определяем победителя(-ей) 1го раунда
-        if ((ivan1 == petr1) && (ivan1 == sid1)) System.out.println("Участники набрали равное кол-во баллов");
-        else if ((ivan1 == petr1) && (ivan1 > sid1)) {ivanWins++; petrWins++; System.out.println("В первом раунде победили Иванов и Петров!");}
-        else if ((ivan1 == sid1) && (ivan1 > petr1)) {ivanWins++; sidWins++; System.out.println("В первом раунде победили Иванов и Сидоров!");}
-        else if ((petr1 == sid1) && (petr1 > ivan1)) {petrWins++; sidWins++; System.out.println("В первом раунде победили Петров и Сидоров!");}
-        else if ((ivan1 > petr1) && (ivan1 > sid1)) {ivanWins++; System.out.println("В первом раунде победил Иванов!");}
-        else if (petr1 > sid1) {petrWins++; System.out.println("В первом раунде победил Петров!");}
-        else {sidWins++; System.out.println("В первом раунде победил Сидоров!");}
+        if ((ivan1 == petr1) && (ivan1 == sid1))
+            System.out.println("Участники набрали равное кол-во баллов");
+        else if ((ivan1 == petr1) && (ivan1 > sid1)) {
+            ivanWins++; petrWins++;
+            System.out.println("В первом раунде победили Иванов и Петров!");
+        }
+        else if ((ivan1 == sid1) && (ivan1 > petr1)) {
+            ivanWins++; sidWins++;
+            System.out.println("В первом раунде победили Иванов и Сидоров!");
+        }
+        else if ((petr1 == sid1) && (petr1 > ivan1)) {
+            petrWins++; sidWins++;
+            System.out.println("В первом раунде победили Петров и Сидоров!");
+        }
+        else if ((ivan1 > petr1) && (ivan1 > sid1)) {
+            ivanWins++;
+            System.out.println("В первом раунде победил Иванов!");
+        }
+        else if (petr1 > sid1) {
+            petrWins++;
+            System.out.println("В первом раунде победил Петров!");
+        }
+        else {
+            sidWins++;
+            System.out.println("В первом раунде победил Сидоров!");
+        }
 
         //Определяем победителя(-ей) 2го раунда
-        if ((ivan2 == petr2) && (ivan2 == sid2)) System.out.println("Участники набрали равное кол-во баллов");
-        else if ((ivan2 == petr2) && (ivan2 > sid2)) {ivanWins++; petrWins++; System.out.println("В первом раунде победили Иванов и Петров!");}
-        else if ((ivan2 == sid2) && (ivan2 > petr2)) {ivanWins++; sidWins++; System.out.println("В первом раунде победили Иванов и Сидоров!");}
-        else if ((petr2 == sid2) && (petr2 > ivan2)) {petrWins++; sidWins++; System.out.println("В первом раунде победили Петров и Сидоров!");}
-        else if ((ivan2 > petr2) && (ivan2 > sid2)) {ivanWins++; System.out.println("Во втором раунде победил Иванов!");}
-        else if (petr2 > sid2) {petrWins++; System.out.println("Во втором раунде победил Петров!");}
-        else {sidWins++; System.out.println("Во втором раунде победил Сидоров!");}
+        if ((ivan2 == petr2) && (ivan2 == sid2))
+            System.out.println("Участники набрали равное кол-во баллов");
+        else if ((ivan2 == petr2) && (ivan2 > sid2)) {
+            ivanWins++;
+            petrWins++;
+            System.out.println("В первом раунде победили Иванов и Петров!");
+        }
+        else if ((ivan2 == sid2) && (ivan2 > petr2)) {
+            ivanWins++;
+            sidWins++;
+            System.out.println("В первом раунде победили Иванов и Сидоров!");
+        }
+        else if ((petr2 == sid2) && (petr2 > ivan2)) {
+            petrWins++;
+            sidWins++;
+            System.out.println("В первом раунде победили Петров и Сидоров!");
+        }
+        else if ((ivan2 > petr2) && (ivan2 > sid2)) {
+            ivanWins++;
+            System.out.println("Во втором раунде победил Иванов!");
+        }
+        else if (petr2 > sid2) {
+            petrWins++;
+            System.out.println("Во втором раунде победил Петров!");
+        }
+        else {
+            sidWins++;
+            System.out.println("Во втором раунде победил Сидоров!");
+        }
 
         //Определяем победителя(-ей) 3го раунда
-        if ((ivan3 == petr3) && (ivan3 == sid3)) System.out.println("Участники набрали равное кол-во баллов");
-        else if ((ivan3 == petr3) && (ivan3 > sid3)) {ivanWins++; petrWins++; System.out.println("В первом раунде победили Иванов и Петров!");}
-        else if ((ivan3 == sid3) && (ivan3 > petr3)) {ivanWins++; sidWins++; System.out.println("В первом раунде победили Иванов и Сидоров!");}
-        else if ((petr3 == sid3) && (petr3 > ivan3)) {petrWins++; sidWins++; System.out.println("В первом раунде победили Петров и Сидоров!");}
-        else if ((ivan3 > petr3) && (ivan3 > sid3)) {ivanWins++; System.out.println("В третьем раунде победил Иванов!");}
-        else if (petr3 > sid3) {petrWins++; System.out.println("В третьем раунде победил Петров!");}
-        else {sidWins++; System.out.println("В третьем раунде победил Сидоров!");}
+        if ((ivan3 == petr3) && (ivan3 == sid3))
+            System.out.println("Участники набрали равное кол-во баллов");
+        else if ((ivan3 == petr3) && (ivan3 > sid3)) {
+            ivanWins++;
+            petrWins++;
+            System.out.println("В первом раунде победили Иванов и Петров!");
+        }
+        else if ((ivan3 == sid3) && (ivan3 > petr3)) {
+            ivanWins++;
+            sidWins++;
+            System.out.println("В первом раунде победили Иванов и Сидоров!");
+        }
+        else if ((petr3 == sid3) && (petr3 > ivan3)) {
+            petrWins++;
+            sidWins++;
+            System.out.println("В первом раунде победили Петров и Сидоров!");
+        }
+        else if ((ivan3 > petr3) && (ivan3 > sid3)) {
+            ivanWins++;
+            System.out.println("В третьем раунде победил Иванов!");
+        }
+        else if (petr3 > sid3) {
+            petrWins++;
+            System.out.println("В третьем раунде победил Петров!");
+        }
+        else {
+            sidWins++;
+            System.out.println("В третьем раунде победил Сидоров!");
+        }
 
         //Определяем победителя. Приоритет победам в раундах, в случае равенства - по кол-ву баллов
         if ((ivanWins == petrWins) && (ivanWins == sidWins)) { //У всех участников равное кол-во побед, определяем победителя по сумме баллов
-            if ((ivanSumm == petrSumm) && (ivanSumm == sidSumm)) System.out.println("У нас ничья, участники победили в равном кол-ве раундов и набрали равное кол-во баллов!");
-            else if ((ivanSumm == petrSumm) && (ivanSumm > sidSumm)) System.out.println("Победили Иванов и Петров!");
-            else if ((ivanSumm == sidSumm) && (ivanSumm > petrSumm)) System.out.println("Победили Иванов и Сидоров!");
-            else if ((petrSumm == sidSumm) && (petrSumm > ivanSumm)) System.out.println("Победили Петров и Сидоров!");
-            else if ((ivanSumm > petrSumm) && (ivanSumm > sidSumm)) System.out.println("Победил Иванов!");
-            else if (petrSumm > sidSumm) System.out.println("Победил Петров!");
-            else System.out.println("Победил Сидоров!");
+            if ((ivanSumm == petrSumm) && (ivanSumm == sidSumm))
+                System.out.println("У нас ничья, участники победили в равном кол-ве раундов и набрали равное кол-во баллов!");
+            else if ((ivanSumm == petrSumm) && (ivanSumm > sidSumm))
+                System.out.println("Победили Иванов и Петров!");
+            else if ((ivanSumm == sidSumm) && (ivanSumm > petrSumm))
+                System.out.println("Победили Иванов и Сидоров!");
+            else if ((petrSumm == sidSumm) && (petrSumm > ivanSumm))
+                System.out.println("Победили Петров и Сидоров!");
+            else if ((ivanSumm > petrSumm) && (ivanSumm > sidSumm))
+                System.out.println("Победил Иванов!");
+            else if (petrSumm > sidSumm)
+                System.out.println("Победил Петров!");
+            else
+                System.out.println("Победил Сидоров!");
         } else if ((ivanWins == petrWins) && (ivanWins > sidWins)) { //У Иванова и Петрова равное кол-во побед, определяем победителя по сумме баллов
-            if (ivanSumm == petrSumm) System.out.println("Победили Иванов и Петров!");
-            else if (ivanSumm > petrSumm) System.out.println("Победил Иванов!");
-            else System.out.println("Победил Петров!");
+            if (ivanSumm == petrSumm)
+                System.out.println("Победили Иванов и Петров!");
+            else if (ivanSumm > petrSumm)
+                System.out.println("Победил Иванов!");
+            else
+                System.out.println("Победил Петров!");
         } else if ((ivanWins == sidWins) && (ivanWins > petrWins)) { //У Иванова и Сидорова равное кол-во побед, определяем победителя по сумме баллов
-            if (ivanSumm == sidSumm) System.out.println("Победили Иванов и Сидоров!");
-            else if (ivanSumm > sidSumm) System.out.println("Победил Иванов!");
-            else System.out.println("Победил Сидоров!");
+            if (ivanSumm == sidSumm)
+                System.out.println("Победили Иванов и Сидоров!");
+            else if (ivanSumm > sidSumm)
+                System.out.println("Победил Иванов!");
+            else
+                System.out.println("Победил Сидоров!");
         } else if ((petrWins == sidWins) && (petrWins > ivanWins)) { //У Петрова и Сидорова равное кол-во побед, определяем победителя по сумме баллов
-            if (petrSumm == sidSumm) System.out.println("Победили Петров и Сидоров!");
-            else if (petrSumm > sidSumm) System.out.println("Победил Петров!");
-            else System.out.println("Победил Сидоров!");
-        } else if ((ivanWins > petrWins) && (ivanWins > sidWins)) System.out.println("Победил Иванов!");
-        else if (petrWins > sidWins) System.out.println("Победил Петров!");
-        else System.out.println("Победил Сидоров!");
+            if (petrSumm == sidSumm)
+                System.out.println("Победили Петров и Сидоров!");
+            else if (petrSumm > sidSumm)
+                System.out.println("Победил Петров!");
+            else
+                System.out.println("Победил Сидоров!");
+        } else if ((ivanWins > petrWins) && (ivanWins > sidWins))
+            System.out.println("Победил Иванов!");
+        else if (petrWins > sidWins)
+            System.out.println("Победил Петров!");
+        else
+            System.out.println("Победил Сидоров!");
 
         /*2*) Даны действительные числа a, b, c, d. Если a<=b<=c<=d, то каждое число заменить наибольшим из них;
         если a>b>c>d, то числа оставить без изменения;
@@ -218,10 +321,7 @@ public class Main {
         float numA = in.nextFloat(); float numB = in.nextFloat(); float numC = in.nextFloat(); float numD = in.nextFloat();
 
         if ((numA <= numB) && (numB <= numC) && (numC <= numD)) {
-            //Тут наверн даже лучше было использовать if - else if - else, но этого добра было много в пред задаче, решил разнообразить
-            numA = numA > numB ? numA : numB;
-            numA = numA > numC ? numA : numC;
-            numA = numA > numD ? numA : numD;
+            numA = Math.max(Math.max(numA, numB), Math.max(numC, numD));
             numB = numA; numC = numA; numD = numA;
             System.out.println("Условие a<=b<=c<=d, все числа приравнены к наибольшему: " + numA);
         } else if (!((numA > numB) && (numB > numC) && (numC > numD))) {
@@ -245,63 +345,69 @@ public class Main {
         int houndrets = thousends > 0 ? ((summMoney/100)%10) : (summMoney/100);
         int dozens = houndrets > 0 ? ((summMoney/10)%10) : (summMoney/10);
         int units = dozens > 0 ? (summMoney%10) : (summMoney);
+        String currency = "долларов";
 
-        //Стринговые аналоги чисел и валюта. По дефолту самый частый вариант валюты и числа соответствующие нулям.
-        String sThousends = ""; String sHoundrets = ""; String sDozens = ""; String sUnits = ""; String currency = "долларов";
-
-        if (thousends == 9) sThousends = "девять тысяч ";
-        else if (thousends == 8) sThousends = "восемь тысяч ";
-        else if (thousends == 7) sThousends = "семь тысяч ";
-        else if (thousends == 6) sThousends = "шесть тысяч ";
-        else if (thousends == 5) sThousends = "пять тысяч ";
-        else if (thousends == 4) sThousends = "четыре тысячи ";
-        else if (thousends == 3) sThousends = "три тысячи ";
-        else if (thousends == 2) sThousends = "две тысячи ";
-        else if (thousends == 1) sThousends = "одна тысяча ";
-        //тут и далее нет просто else т.к. это обработка нуля и значение оставляем пустым
-
-        if (houndrets == 9) sHoundrets = "девятьсот ";
-        else if (houndrets == 8) sHoundrets = "восемьсот ";
-        else if (houndrets == 7) sHoundrets = "семьсот ";
-        else if (houndrets == 6) sHoundrets = "шестьсот ";
-        else if (houndrets == 5) sHoundrets = "пятьсот ";
-        else if (houndrets == 4) sHoundrets = "четыреста ";
-        else if (houndrets == 3) sHoundrets = "триста ";
-        else if (houndrets == 2) sHoundrets = "двести ";
-        else if (houndrets == 1) sHoundrets = "сто ";
-
-        if (dozens == 1) {
-            if (units == 9) sUnits = "девятнадцать";
-            else if (units == 8) sUnits = "восемнадцать";
-            else if (units == 7) sUnits = "семнадцать";
-            else if (units == 6) sUnits = "шестнадцать";
-            else if (units == 5) sUnits = "пятнадцать";
-            else if (units == 4) sUnits = "четырнадцать";
-            else if (units == 3) sUnits = "тринадцать";
-            else if (units == 2) sUnits = "двенадцать";
-            else if (units == 1) sUnits = "одиннадцать";
-            else sDozens = "десять ";
-        } else {
-            if (dozens == 9) sDozens = "девяносто ";
-            else if (dozens == 8) sDozens = "восемьдесят ";
-            else if (dozens == 7) sDozens = "семьдесят ";
-            else if (dozens == 6) sDozens = "шестьдесят ";
-            else if (dozens == 5) sDozens = "пятьдеся т";
-            else if (dozens == 4) sDozens = "сорок ";
-            else if (dozens == 3) sDozens = "тридцать ";
-            else if (dozens == 2) sDozens = "двадцать ";
-
-            if (units == 9) sUnits = "девять ";
-            else if (units == 8) sUnits = "восемь ";
-            else if (units == 7) sUnits = "семь ";
-            else if (units == 6) sUnits = "шесть ";
-            else if (units == 5) sUnits = "пять ";
-            else if (units == 4) {sUnits = "четыре "; currency = "доллара";}
-            else if (units == 3) {sUnits = "три "; currency = "доллара";}
-            else if (units == 2) {sUnits = "два "; currency = "доллара";}
-            else if (units == 1) {sUnits = "один "; currency = "доллар";}
+        System.out.print("Ваша сумма ");
+        switch (thousends) {
+            case 9: System.out.print("девять тысяч "); break;
+            case 8: System.out.print("восемь тысяч "); break;
+            case 7: System.out.print("семь тысяч "); break;
+            case 6: System.out.print("шесть тысяч "); break;
+            case 5: System.out.print("пять тысяч "); break;
+            case 4: System.out.print("четыре тысячи "); break;
+            case 3: System.out.print("три тысячи "); break;
+            case 2: System.out.print("две тысячи "); break;
+            case 1: System.out.print("одна тысяча "); break;
         }
 
-        System.out.println("Ваша сумма " + sThousends + sHoundrets + sDozens + sUnits + currency);
+        switch (houndrets) {
+            case 9: System.out.print("девятьсот "); break;
+            case 8: System.out.print("восемьсот "); break;
+            case 7: System.out.print("семьсот "); break;
+            case 6: System.out.print("шестьсот "); break;
+            case 5: System.out.print("пятьсот "); break;
+            case 4: System.out.print("четыреста "); break;
+            case 3: System.out.print("триста "); break;
+            case 2: System.out.print("двести "); break;
+            case 1: System.out.print("сто "); break;
+        }
+
+        if (dozens == 1) {
+            switch (units) {
+                case 9: System.out.print("девятнадцать "); break;
+                case 8: System.out.print("восемнадцать "); break;
+                case 7: System.out.print("семнадцать "); break;
+                case 6: System.out.print("шестнадцать "); break;
+                case 5: System.out.print("пятнадцать "); break;
+                case 4: System.out.print("четырнадцать "); break;
+                case 3: System.out.print("тринадцать "); break;
+                case 2: System.out.print("двенадцать "); break;
+                case 1: System.out.print("одиннадцать "); break;
+                default: System.out.print("десять "); break;
+            }
+        } else {
+            switch (dozens) {
+                case 9: System.out.print("девяносто "); break;
+                case 8: System.out.print("восемьдесят "); break;
+                case 7: System.out.print("семьдесят "); break;
+                case 6: System.out.print("шестьдесят "); break;
+                case 5: System.out.print("пятьдесят "); break;
+                case 4: System.out.print("сорок "); break;
+                case 3: System.out.print("тридцать "); break;
+                case 2: System.out.print("двадцать "); break;
+            }
+            switch (units) {
+                case 9: System.out.print("девять "); break;
+                case 8: System.out.print("восемь "); break;
+                case 7: System.out.print("семь "); break;
+                case 6: System.out.print("шесть "); break;
+                case 5: System.out.print("пять "); break;
+                case 4: {System.out.print("четыре "); currency = "доллара";} break;
+                case 3: {System.out.print("три "); currency = "доллара";} break;
+                case 2: {System.out.print("два "); currency = "доллара";} break;
+                case 1: {System.out.print("один "); currency = "доллара";} break;
+            }
+        }
+        System.out.print(currency + "\n");
     }
 }
